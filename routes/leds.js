@@ -2,10 +2,12 @@
 
 const Boom = require('@hapi/Boom')
 const blinkstick = require('blinkstick')
-const device = blinkstick.findFirst()
 const { allLeds, setColorAsync } = require('../helpers')
 
 module.exports = function(request, h) {
+
+    const device = blinkstick.findFirst()
+    const position = request.params.position ? request.params.position : 'all';
 
     if (!device) {
         return Boom.resourceGone('Blinkstick not found')
@@ -13,12 +15,14 @@ module.exports = function(request, h) {
 
     if (request.method === 'post' ) {
 
-        allLeds(device, request.payload.color)
-
-        return request.payload
+        if (position === 'all') {
+            allLeds(device, request.payload.color)
+        } else {
+            setColorAsync(device, request.payload.color, position);
+        }
     }
 
-    return {
-        
-    }
+    device.getColors(64, function(err, data) {
+        return data;
+    });
 };

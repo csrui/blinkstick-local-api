@@ -12,7 +12,7 @@ exports.plugin = {
 
         server.route({
             method: ['GET', 'POST'],
-            path: '/leds',
+            path: '/leds/{position?}',
             handler: require('./routes/leds')
         })
     }

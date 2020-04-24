@@ -1,0 +1,29 @@
+{
+  "name": "blinkstick-local-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csrui/blinkstick-local-api.git"
+  },
+  "keywords": [
+    "blinkstick",
+    "rest",
+    "api"
+  ],
+  "author": "Rui Sardinha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csrui/blinkstick-local-api/issues"
+  },
+  "homepage": "https://github.com/csrui/blinkstick-local-api#readme",
+  "dependencies": {
+    "@hapi/boom": "^9.1.0",
+    "@hapi/hapi": "^19.1.1",
+    "blinkstick": "^1.2.0"
+  }
+}

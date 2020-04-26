@@ -15,9 +15,9 @@ module.exports = function(req, res) {
     if (req.method === 'post' ) {
 
         if (position === 'all') {
-            allLeds(device, req.payload.color)
+            allLeds(device, req.body.color)
         } else {
-            setColorAsync(device, req.payload.color, position)
+            setColorAsync(device, req.body.color, position)
         }
     }
 

@@ -6,7 +6,7 @@ const { allLeds, setColorAsync } = require('../helpers')
 module.exports = function(req, res) {
 
     const device = blinkstick.findFirst()
-    const position = req.params.position ? req.params.position : 'all';
+    const position = req.params.position ? req.params.position : 'all'
 
     if (!device) {
         res.status(404).send('Blinkstick not found')
@@ -17,11 +17,12 @@ module.exports = function(req, res) {
         if (position === 'all') {
             allLeds(device, req.payload.color)
         } else {
-            setColorAsync(device, req.payload.color, position);
+            setColorAsync(device, req.payload.color, position)
         }
     }
 
     device.getColors(64, function(err, data) {
-        return data;
-    });
-};
+        console.log(err)
+        res.json(data)
+    })
+}

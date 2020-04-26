@@ -11,9 +11,9 @@ module.exports = function (req, res) {
 
     device.getSerial(function(error, result) {
 
-        console.log(error);
-        return {
+        console.log(error, result);
+        res.json({
             Serial: result
-        };
-    });
-};
+        })
+    })
+}

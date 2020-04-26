@@ -12,7 +12,7 @@ module.exports = function(req, res) {
         res.status(404).send('Blinkstick not found')
     }
 
-    console.log(req.body)
+    console.log(req.body, req.params, req.method)
 
     if (req.method === 'POST' ) {
 

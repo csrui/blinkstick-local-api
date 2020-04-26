@@ -1,24 +1,25 @@
 'use strict';
 
-const Hapi = require('@hapi/hapi')
+const express = require('express')
+const app = express()
+const port = 3000
 
-const init = async () => {
+// app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/info', require('./routes/info'))
 
-    const server = Hapi.server({
-        port: 3000,
-        host: 'localhost'
-    });
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
-    await server.register(require('./index'));
+// const Hapi = require('@hapi/hapi')
 
-    await server.start();
-    console.log('Server running on %s', server.info.uri);
-};
+// const init = async () => {
 
-process.on('unhandledRejection', (err) => {
+//     const server = Hapi.server({
+//         port: 3000,
+//         host: 'localhost'
+//     });
 
-    console.log(err);
-    process.exit(1);
-});
+//     await server.register(require('./index'));
 
-init();
+//     await server.start();
+//     console.log('Server running on %s', server.info.uri);
+// };

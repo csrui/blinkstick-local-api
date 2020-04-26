@@ -22,8 +22,7 @@
   },
   "homepage": "https://github.com/csrui/blinkstick-local-api#readme",
   "dependencies": {
-    "@hapi/boom": "^9.1.0",
-    "@hapi/hapi": "^19.1.1",
-    "blinkstick": "^1.2.0"
+    "blinkstick": "^1.2.0",
+    "express": "^4.17.1"
   }
 }

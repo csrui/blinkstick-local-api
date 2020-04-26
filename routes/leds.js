@@ -14,6 +14,8 @@ module.exports = function(req, res) {
 
     if (req.method === 'post' ) {
 
+        console.log('Coloring', position, req.body.color)
+
         if (position === 'all') {
             allLeds(device, req.body.color)
         } else {
@@ -21,8 +23,8 @@ module.exports = function(req, res) {
         }
     }
 
-    device.getColors(64, function(err, data) {
-        console.log(err)
-        res.json(data)
-    })
+    // device.getColors(64, function(err, data) {
+    //     console.log(err)
+    //     res.json(data)
+    // })
 }

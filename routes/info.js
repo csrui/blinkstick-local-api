@@ -6,7 +6,7 @@ const device = blinkstick.findFirst()
 module.exports = function (req, res) {
 
     if (!device) {
-        return Boom.resourceGone('Blinkstick not found')
+        res.status(404).send('Blinkstick not found')
     }
 
     device.getSerial(function(error, result) {

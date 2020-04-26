@@ -12,7 +12,7 @@ module.exports = function(req, res) {
         res.status(404).send('Blinkstick not found')
     }
 
-    if (req.method === 'post' ) {
+    if (req.method === 'POST' ) {
 
         console.log('Coloring', position, req.body.color)
 
@@ -22,6 +22,11 @@ module.exports = function(req, res) {
             setColorAsync(device, req.body.color, position)
         }
     }
+
+    res.json({
+        position: position,
+        color: req.body.color
+    })
 
     // device.getColors(64, function(err, data) {
     //     console.log(err)

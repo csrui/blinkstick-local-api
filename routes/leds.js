@@ -12,6 +12,8 @@ module.exports = function(req, res) {
         res.status(404).send('Blinkstick not found')
     }
 
+    console.log(req.body)
+
     if (req.method === 'POST' ) {
 
         console.log('Coloring', position, req.body.color)

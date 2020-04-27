@@ -1,3 +1,6 @@
+// TODO: Review helpers
+// Code shamelessly borrowed from https://github.com/swissmanu/blinkstick-teamcity/blob/master/lib/blinkStick.js
+
 const channel = 0
 
 const setColorAsync = (device, color, index) => {

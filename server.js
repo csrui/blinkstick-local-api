@@ -12,4 +12,5 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/info', require('./routes/info'))
 app.all('/leds/:position', require('./routes/leds'))
 
+// Start app
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

@@ -9,7 +9,10 @@ app.use(express.urlencoded({ extended: true }))
 
 // Routes
 app.get('/', (req, res) => res.send('Hello World!'))
-app.get('/info', require('./routes/info'))
+
+app.get('/device', require('./routes/device_index'))
+app.get('/device/:serial', require('./routes/device_view'))
+
 app.all('/leds/:position', require('./routes/leds'))
 
 // Start app

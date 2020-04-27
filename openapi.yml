@@ -1,0 +1,74 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Blinkstick
+  contact:
+    name: Rui Sardinha
+    email: rui.sardinha@26b.io
+  description: API to control Blinkstick devices
+servers:
+  - url: "http://localhost:3000"
+paths:
+  /device:
+    get:
+      summary: "List connected devices"
+    responses:
+      "200":
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/devices"
+      default:
+        description: Unexpected error
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+  /device/{deviceSerial}:
+    get:
+      summary: "Information about a given device"
+    parameters:
+      - schema:
+          type: string
+          example: ""
+        name: deviceSerial
+        in: path
+        description: Serial of the device to get details
+        required: true
+    responses:
+      "200":
+        description: "Information about the device"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/device"
+      "404":
+        description: Device is not available
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    devices:
+      type: array
+      title: Devices
+      items:
+        $ref: "#/components/schemas/device"
+    device:
+      type: object
+      properties:
+        serial:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
